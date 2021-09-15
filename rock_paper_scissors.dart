@@ -23,7 +23,16 @@ void main() {
       final random = rng.nextInt(3);
       final aiMove = Move.values[random];
       print('Computer : $aiMove');
-      // TODO: LOGICAL WIN / LOSE
+      // logical win /lose
+      if (playerMove == aiMove) {
+        print('It\'s a Draw!!');
+      } else if (playerMove == Move.rock && aiMove == Move.scissors ||
+          playerMove == Move.paper && aiMove == Move.rock ||
+          playerMove == Move.scissors && aiMove == Move.paper) {
+        print('Player win !!');
+      } else {
+        print('Oh! You lose...');
+      }
     } else if (playerInput == 'q') {
       print('End Game !');
       break;
