@@ -4,7 +4,6 @@ import 'dart:math';
 enum Move { rock, paper, scissors }
 
 void main() {
-  final rng = Random();
   while (true) {
     stdout.write('Rock, Paper or Scissors ? ( r / p / s / q for quit) :  ');
     final playerInput = stdin.readLineSync();
@@ -20,7 +19,7 @@ void main() {
       }
       print('Player : $playerMove');
       // generate random AI move
-      final random = rng.nextInt(3);
+      final random = Random().nextInt(3);
       final aiMove = Move.values[random];
       print('Computer : $aiMove');
       // logical win /lose
@@ -33,6 +32,7 @@ void main() {
       } else {
         print('Oh! You lose...');
       }
+      // quit game and error selection
     } else if (playerInput == 'q') {
       print('End Game !');
       break;
